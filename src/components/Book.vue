@@ -35,7 +35,7 @@
   <div>
     <code>{{tsv}}</code>
   </div>
-  <button @click="copyTSV(tsv.value)">copy</button>
+  <button @click="copyTSV">copy</button>
 </template>
 
 <script lang="ts">
