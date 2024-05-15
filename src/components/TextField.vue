@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-    import { defineProps, defineModel } from "vue";
-
     const field = defineModel("field", { type: String, required: true });
 
     defineProps({
