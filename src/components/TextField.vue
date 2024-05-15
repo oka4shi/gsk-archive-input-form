@@ -11,7 +11,7 @@
 <script setup lang="ts">
     import { defineProps, defineModel } from "vue";
 
-    const field = defineModel("field", { required: true });
+    const field = defineModel("field", { type: String, required: true });
 
     defineProps({
         "label": {type: String, required: true},
