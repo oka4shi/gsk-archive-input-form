@@ -1,12 +1,16 @@
-<script setup lang="ts">
-import Book from './components/Book.vue'
-</script>
-
 <template>
-  <header></header>
-
+  <header>
+    <h1>げんしけん アーカイブ班 入力フォーム</h1>
+    <nav>
+      <li><RouterLink to="/">トップ</RouterLink></li>
+    </nav>
+  </header>
   <main>
-    <h1>レビュー</h1>
-    <Book />
+    <RouterView />
   </main>
 </template>
+
+<style lang="scss">
+@use 'bulma/sass/base';
+@use 'bulma/sass/themes';
+</style>

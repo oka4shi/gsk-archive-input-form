@@ -1,45 +1,31 @@
 <template>
-  <h2>冊子</h2>
+  <h2>レビュー冊子</h2>
+  <!--
+  <div class="field">
+    <label class="label">タイトル</label>
+    <div class="control">
+      <input class="input" v-model="book.title" placeholder="タイトル" />
+    </div>
+  </div>-->
+  <TextField label="タイトル" v-model:field="book.title" />
+  <TextField label="発行日" v-model:field="book.pubdate" type="date"/>
+  <TextField label="発行者" v-model:field="book.publisher" />
+  <TextField label="発行所" v-model:field="book.pubplace" />
+  <TextField label="表紙ロゴ" v-model:field="book.logo"/>
+  <TextField label="製本" v-model:field="book.bookmaking"/>
+  <TextField label="編集長" v-model:field="book.editChef"/>
+  <TextField label="備考" v-model:field="book.note" :required=false type="textarea"/>
   <div>
-    <label for="book--title">タイトル</label>
-    <input v-model="book.title" placeholder="タイトル" />
+    <code>{{ tsv }}</code>
   </div>
-  <div>
-    <label for="book--pubdate">発行日</label>
-    <input id="book--pubdate" type="date" v-model="book.pubdate" />
+  <div class="control">
+    <button class="button" @click="copyTSV">copy</button>
   </div>
-  <div>
-    <label for="book--publisher">発行者</label>
-    <input id="book--publisher" type="text" v-model="book.publisher" />
-  </div>
-  <div>
-    <label for="book--publisher">発行所</label>
-    <input id="book--publisher" type="text" v-model="book.pubplace" />
-  </div>
-  <div>
-    <label for="book--logo">表紙ロゴ</label>
-    <input id="book--logo" type="text" v-model="book.logo" />
-  </div>
-  <div>
-    <label for="book--bookmaking">製本</label>
-    <input id="book--bookmaking" type="text" v-model="book.bookmaking" />
-  </div>
-  <div>
-    <label for="book--edit-chef">編集長</label>
-    <input id="book--edit-chef" type="text" v-model="book.editChef" />
-  </div>
-  <div>
-    <label for="book--edit-chef">備考</label>
-    <textarea v-model="book.note" placeholder="add multiple lines"></textarea>
-  </div>
-  <div>
-    <code>{{tsv}}</code>
-  </div>
-  <button @click="copyTSV">copy</button>
 </template>
 
 <script lang="ts">
-import { watchEffect , ref, reactive, computed, defineComponent } from 'vue'
+import { watch, ref, reactive, computed, defineComponent } from 'vue'
+import TextField from "./TextField.vue";
 
 type Book = {
   title: string
@@ -53,8 +39,11 @@ type Book = {
 }
 
 export default defineComponent({
+  components: {
+    TextField,
+  },
   setup() {
-    const tsv = ref("");
+    const tsv = ref('')
     const book: Book = reactive({
       title: '',
       pubdate: '',
@@ -64,37 +53,40 @@ export default defineComponent({
       bookmaking: '',
       editChef: '',
       note: ''
-    });
-    watchEffect(() => {
-      tsv.value = (
-        book.title +
+    })
+    watch(book, (newBook, oldBook) => {
+      tsv.value =
+        newBook.title +
         '\t' +
-        book.pubdate +
+        newBook.pubdate +
         '\t' +
-        book.publisher +
+        newBook.publisher +
         '\t' +
-        book.pubplace +
+        newBook.pubplace +
         '\t' +
-        book.logo +
+        newBook.logo +
         '\t' +
-        book.bookmaking +
+        newBook.bookmaking +
         '\t' +
-        book.editChef +
+        newBook.editChef +
         '\t' +
-        book.note +
+        newBook.note +
         '\t'
-      );
       //console.log(tsv);
-    });
+    })
     function copyTSV() {
       navigator.clipboard.writeText(tsv.value)
-    };
+    }
     return {
       book,
       tsv,
-      copyTSV,
+      copyTSV
     }
   }
 })
-
 </script>
+
+<style lang="scss">
+@use 'bulma/sass/form/input-textarea';
+@use 'bulma/sass/elements/button';
+</style>
