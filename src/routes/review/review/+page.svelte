@@ -56,6 +56,9 @@
 	const copy = () => {
 		navigator.clipboard.writeText(tsv);
 	};
+	const clear = () => {
+		review.set(initReview())
+	}
 </script>
 
 <div class="text-sm breadcrumbs">
@@ -75,4 +78,4 @@
 <TextField label="掲載誌" bind:value={$review.includedIn} inputType="text" required />
 <TextField label="備考" bind:value={$review.note} inputType="textarea" required />
 <button class="btn btn-primary" on:click={copy}>copy</button>
-<button class="btn btn-warning">clear</button>
+<button class="btn btn-warning" on:click={clear}>clear</button>
