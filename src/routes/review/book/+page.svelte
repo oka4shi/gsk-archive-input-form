@@ -52,6 +52,9 @@
 	const copy = () => {
 		navigator.clipboard.writeText(tsv);
 	};
+	const clear = () => {
+		book.set(initBookData())
+	}
 </script>
 
 <div class="text-sm breadcrumbs">
@@ -70,4 +73,4 @@
 <TextField label="編集長" bind:value={$book.chefEditor} inputType="text" required />
 <TextField label="備考" bind:value={$book.note} inputType="textarea" required />
 <button class="btn btn-primary" on:click={copy}>copy</button>
-<button class="btn btn-warning">clear</button>
+<button class="btn btn-warning" on:click={clear}>clear</button>
