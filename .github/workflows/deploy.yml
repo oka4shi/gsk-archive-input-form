@@ -6,7 +6,7 @@ on:
 
 env:
   ARTIFACT_DIR: "build"
-  BASE_PATH: '/gsk-archive-generator'
+  BASE_PATH: '/gsk-archive-input-form'
 
 jobs:
   build_site:
