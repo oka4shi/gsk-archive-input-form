@@ -44,7 +44,7 @@
 			'\t' +
 			b.author +
 			'\t' +
-			b.startPage
+			b.startPage +
 			'\t' +
 			b.endPage +
 			'\t' +
