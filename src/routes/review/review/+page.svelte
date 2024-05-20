@@ -3,7 +3,7 @@
 	import { base } from '$app/paths';
 	import { writable } from 'svelte/store';
 
-  const ID_PREFIX = "BRV";
+	const ID_PREFIX = 'BRV';
 
 	type Review = {
 		title: string;
@@ -30,7 +30,7 @@
 			startPage: '',
 			endPage: '',
 			includedIn: '',
-		  includedInId: "",
+			includedInId: '',
 			note: ''
 		};
 	};
@@ -58,7 +58,8 @@
 			'\t' +
 			b.includedIn +
 			'\t' +
-			ID_PREFIX + b.includedInId +
+			ID_PREFIX +
+			b.includedInId +
 			'\t' +
 			b.note;
 	});

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import TextField from '$lib/TextField.svelte';
+	import { generateId } from '$lib/util';
 	import { base } from '$app/paths';
 	import { writable } from 'svelte/store';
 
@@ -20,23 +21,24 @@
 		speciation: string;
 		size: string;
 		pubDate: string;
-    author: string;
+		author: string;
 		pubPerson: string;
 		pubPlace: string;
 		frontCoverIllustlator: string;
 		logo: string;
 		bookmaking: string;
 		chefEditor: string;
+		printOffice: string;
 		note: string;
 	};
 
-	const initBookData = () => {
+	const initBookData = (): Book => {
 		return {
 			title: '',
 			speciation: '',
 			size: '',
 			pubDate: '',
-    author: "",
+			author: '',
 			pubPerson: '',
 			pubPlace: '',
 			logo: '',
@@ -80,6 +82,8 @@
 			b.note;
 	});
 
+	const speciationId = generateId(8);
+
 	const copy = () => {
 		navigator.clipboard.writeText(tsv);
 	};
@@ -99,11 +103,11 @@
 <div class="field">
 	<div class="form-control">
 		<div class="label">
-			<label>
+			<label for={speciationId}>
 				<span class="label-text"> 種別 </span>
 			</label>
 		</div>
-		<select bind:value={$book.speciation} class="select select-borderd">
+		<select bind:value={$book.speciation} class="select select-borderd" id={speciationId}>
 			{#each speciations as classiation}
 				<option value={classiation}>{classiation}</option>
 			{/each}
