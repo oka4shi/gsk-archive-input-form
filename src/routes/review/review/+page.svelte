@@ -8,23 +8,25 @@
 		titleYomi: string;
 		subtitle: string;
 		subtitleYomi: string;
+		series: string;
 		author: string;
 		startPage: string;
 		endPage: string;
-    includedIn: string;
-    note: string;
+		includedIn: string;
+		note: string;
 	};
 
 	const initReview = (): Review => {
 		return {
 			title: '',
-		  titleYomi: "",
-		  subtitle: "",
-		  subtitleYomi: "",
-		  author: "",
-		  startPage: "",
-		  endPage: "",
-      includedIn: "",
+			titleYomi: '',
+			subtitle: '',
+			subtitleYomi: '',
+			series: '',
+			author: '',
+			startPage: '',
+			endPage: '',
+			includedIn: '',
 			note: ''
 		};
 	};
@@ -41,6 +43,8 @@
 			b.subtitle +
 			'\t' +
 			b.subtitleYomi +
+			'\t' +
+			b.series +
 			'\t' +
 			b.author +
 			'\t' +
@@ -69,9 +73,10 @@
 	</ul>
 </div>
 <TextField label="タイトル" bind:value={$review.title} inputType="text" required />
-<TextField label="タイトルヨミ" bind:value={$review.titleYomi} inputType="text" required />
+<TextField label="タイトルヨミ" bind:value={$review.titleYomi} inputType="text" />
 <TextField label="サブタイトル" bind:value={$review.subtitle} inputType="text" required />
-<TextField label="サブタイトルヨミ" bind:value={$review.subtitleYomi} inputType="text" required />
+<TextField label="サブタイトルヨミ" bind:value={$review.subtitleYomi} inputType="text" />
+<TextField label="シリーズ" bind:value={$review.series} inputType="text" />
 <TextField label="著者" bind:value={$review.author} inputType="text" required />
 <TextField label="開始ページ" bind:value={$review.startPage} inputType="number" required />
 <TextField label="終了ページ" bind:value={$review.endPage} inputType="number" required />
