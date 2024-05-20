@@ -53,8 +53,8 @@
 		navigator.clipboard.writeText(tsv);
 	};
 	const clear = () => {
-		book.set(initBookData())
-	}
+		book.set(initBookData());
+	};
 </script>
 
 <div class="text-sm breadcrumbs">

@@ -57,8 +57,8 @@
 		navigator.clipboard.writeText(tsv);
 	};
 	const clear = () => {
-		review.set(initReview())
-	}
+		review.set(initReview());
+	};
 </script>
 
 <div class="text-sm breadcrumbs">
