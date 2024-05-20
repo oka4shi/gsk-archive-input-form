@@ -3,6 +3,8 @@
 	import { base } from '$app/paths';
 	import { writable } from 'svelte/store';
 
+  const ID_PREFIX = "BRV";
+
 	type Review = {
 		title: string;
 		titleYomi: string;
@@ -13,6 +15,7 @@
 		startPage: string;
 		endPage: string;
 		includedIn: string;
+		includedInId: string;
 		note: string;
 	};
 
@@ -27,6 +30,7 @@
 			startPage: '',
 			endPage: '',
 			includedIn: '',
+		  includedInId: "",
 			note: ''
 		};
 	};
@@ -54,6 +58,8 @@
 			'\t' +
 			b.includedIn +
 			'\t' +
+			ID_PREFIX + b.includedInId +
+			'\t' +
 			b.note;
 	});
 
@@ -80,7 +86,8 @@
 <TextField label="著者" bind:value={$review.author} inputType="text" required />
 <TextField label="開始ページ" bind:value={$review.startPage} inputType="number" required />
 <TextField label="終了ページ" bind:value={$review.endPage} inputType="number" required />
-<TextField label="掲載誌" bind:value={$review.includedIn} inputType="text" required />
+<TextField label="掲載誌（確認用）" bind:value={$review.includedIn} inputType="text" />
+<TextField label="掲載誌ID" bind:value={$review.includedInId} inputType="number" required />
 <TextField label="備考" bind:value={$review.note} inputType="textarea" required />
 <button class="btn btn-primary" on:click={copy}>copy</button>
 <button class="btn btn-warning" on:click={clear}>clear</button>
