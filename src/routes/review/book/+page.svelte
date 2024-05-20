@@ -20,6 +20,7 @@
 		speciation: string;
 		size: string;
 		pubDate: string;
+    author: string;
 		pubPerson: string;
 		pubPlace: string;
 		frontCoverIllustlator: string;
@@ -35,6 +36,7 @@
 			speciation: '',
 			size: '',
 			pubDate: '',
+    author: "",
 			pubPerson: '',
 			pubPlace: '',
 			logo: '',
@@ -58,6 +60,8 @@
 			b.size +
 			'\t' +
 			b.pubDate +
+			'\t' +
+			b.author +
 			'\t' +
 			b.pubPerson +
 			'\t' +
@@ -108,6 +112,7 @@
 </div>
 <TextField label="サイズ" bind:value={$book.size} inputType="text" required />
 <TextField label="発行日" bind:value={$book.pubDate} inputType="date" required />
+<TextField label="著者" bind:value={$book.author} inputType="text" required />
 <TextField label="発行者" bind:value={$book.pubPerson} inputType="text" required />
 <TextField label="発行所" bind:value={$book.pubPlace} inputType="text" required />
 <TextField label="表紙ロゴ" bind:value={$book.logo} inputType="text" required />
