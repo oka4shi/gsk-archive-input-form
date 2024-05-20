@@ -74,7 +74,7 @@
 </div>
 <TextField label="タイトル" bind:value={$review.title} inputType="text" required />
 <TextField label="タイトルヨミ" bind:value={$review.titleYomi} inputType="text" />
-<TextField label="サブタイトル" bind:value={$review.subtitle} inputType="text" required />
+<TextField label="サブタイトル" bind:value={$review.subtitle} inputType="text" />
 <TextField label="サブタイトルヨミ" bind:value={$review.subtitleYomi} inputType="text" />
 <TextField label="シリーズ" bind:value={$review.series} inputType="text" />
 <TextField label="著者" bind:value={$review.author} inputType="text" required />
