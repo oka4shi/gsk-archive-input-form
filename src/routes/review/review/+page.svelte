@@ -101,7 +101,7 @@
 
 <details>
 	<summary>掲載紙の補完の設定</summary>
-	<p>スプレッドシートの1列目と2列目を選択しペーストしてください</p>
+	<p>冊子スプレッドシートの1列目と2列目(仮IDとタイトル)を選択しペーストしてください</p>
 	<textarea bind:value={$idTupleString} class="textarea textarea-bordered w-full"></textarea>
 </details>
 <label for="included-in">掲載誌ID</label>
